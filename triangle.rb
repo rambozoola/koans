@@ -14,6 +14,15 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+
+  raise TriangleError if [a,b,c].min <= 0
+
+  max_l = [a,b,c].max
+  sum = 0
+  [a,b,c].each { |x| sum = sum + x}
+  raise TriangleError if sum - max_l <= max_l
+
+
   if a == b and b == c
     :equilateral
   else
