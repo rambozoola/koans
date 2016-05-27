@@ -18,8 +18,7 @@ def triangle(a, b, c)
   raise TriangleError if [a,b,c].min <= 0
 
   max_l = [a,b,c].max
-  sum = 0
-  [a,b,c].each { |x| sum = sum + x}
+  sum = [a,b,c].inject(0) { |sum, item| sum + item }
   raise TriangleError if sum - max_l <= max_l
 
 
